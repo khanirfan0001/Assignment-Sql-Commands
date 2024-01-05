@@ -11,7 +11,7 @@ select * from actor;
 select * from customer;
 
 -- 4.List different countries
-select * from country;
+select distinct(country) from country;
 
 -- 5.Display all active customers;
 select * from customer where active = 1;
@@ -23,10 +23,10 @@ select rental_id from rental where customer_id = 1;
 select * from film where rental_duration > 5;
 
 -- 8.List the total number of films whose replacement cost is greater than $15 and less than $20
-select *from film where replacement_cost > 15 and replacement_cost < 20;
+select count(title) from film where replacement_cost > 15 and replacement_cost <20;
 
 -- 9.Display the count of unique first names of actors;
-select distinct(first_name) from actor;
+select count(distinct(first_name)) from actor;
 
 -- 10.Display the first 10 records from the customer table
 select * from customer  limit 10;
@@ -44,7 +44,7 @@ select * from customer where first_name like 'a%';
 select * from customer where first_name like '%a';
 
 -- 15.Display the list of first 4 cities which starts and ends with a
-select * from city where city like 'a%a';
+select city from city where city like 'a%a' limit 4;
 
 -- 16.find all customers whose first name have NI in any position
 select * from customer where first_name like '%NI%';
